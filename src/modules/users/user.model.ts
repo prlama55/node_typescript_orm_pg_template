@@ -1,5 +1,5 @@
 import UserEntity from "../../modules/users/user.entity";
-import {Model} from "../../models";
+import {Model} from "../../shared";
 
 class User extends Model<UserEntity>{
 

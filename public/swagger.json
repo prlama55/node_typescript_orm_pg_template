@@ -6,22 +6,6 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"PingResponse": {
-				"properties": {
-					"version": {
-						"type": "string"
-					},
-					"message": {
-						"type": "string"
-					}
-				},
-				"required": [
-					"version",
-					"message"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"UserEntity": {
 				"properties": {
 					"id": {
@@ -56,6 +40,26 @@
 				],
 				"type": "object",
 				"additionalProperties": false
+			},
+			"IUserCreate": {
+				"properties": {
+					"firstName": {
+						"type": "string"
+					},
+					"lastName": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"firstName",
+					"lastName",
+					"email"
+				],
+				"type": "object",
+				"additionalProperties": false
 			}
 		},
 		"securitySchemes": {}
@@ -72,28 +76,6 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/ping": {
-			"get": {
-				"operationId": "Ping",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/PingResponse"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Ping"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
 		"/users": {
 			"get": {
 				"operationId": "GetUsers",
@@ -136,7 +118,9 @@
 					"required": true,
 					"content": {
 						"application/json": {
-							"schema": {}
+							"schema": {
+								"$ref": "#/components/schemas/IUserCreate"
+							}
 						}
 					}
 				}

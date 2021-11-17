@@ -9,7 +9,7 @@ class Model<T>{
         return this.repository.find();
     }
 
-    public async save(payload: T){
+    public async save(payload: any){
         return this.repository.save({
             ...payload,
         });

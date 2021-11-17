@@ -3,7 +3,7 @@ import { createConnection } from "typeorm";
 import express, { Application } from "express";
 import morgan from "morgan";
 import dbConfig from "./config/database";
-import Router from "./routes";
+import routes from "./shared/routes";
 import swaggerUi from "swagger-ui-express";
 
 const APP_PORT = process.env.APP_PORT || 8080;
@@ -23,7 +23,7 @@ app.use(
     })
 );
 
-app.use(Router);
+app.use(routes);
 
 createConnection(dbConfig)
     .then((_connection) => {
