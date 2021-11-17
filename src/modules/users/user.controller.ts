@@ -1,4 +1,4 @@
-import { Get, Route, Tags, Post, Body, Path } from "tsoa";
+import { Get, Route, Tags, Post, Body } from "tsoa";
 import { User } from "../../shared";
 import UserEntity from "./user.entity";
 import {IUserCreate} from "../../shared/types/IUser";
